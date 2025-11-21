@@ -3,7 +3,8 @@ Présentation :
 Le site propose une présentation de l’offre, ainsi qu’une mise en valeur originale des candidatures et de l’insertion professionnelle grâce à des indicateurs visuels. Des visualisations, réparties de manière harmonieuse au sein de la présentation du master, rassemblent toutes les informations essentielles sur la formation. L’internaute peut interagir avec ces visualisations afin de filtrer et d’affiner les données affichées.
 
 Schéma de conception : 
-<img width="1920" height="1080" alt="Schéma conception" src="https://github.com/user-attachments/assets/2f644021-97e7-4ef9-8596-cc095ce80f41" />
+<img width="1211" height="913" alt="Schéma conception" src="https://github.com/user-attachments/assets/ab082986-a354-4874-96af-a74f1948242b" />
+
 
 
 Déploiement : 
