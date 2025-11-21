@@ -113,9 +113,9 @@ RestManagement.js : getLastAttempts()
 Fonction permettant de récupérer les dernières tentatives via l'API REST. Effectuer un appel à l'API REST pour obtenir et transmettre les dernières tentatives.
 
 
-Actualisation
+Actualisation : 
 D’autres fonctionnalités, meilleur fonctionnement du projet sont prévu dans les prochaines semaines (à partir du 21/11/2025).
 
-Bugs connus
+Bugs connus : 
 Etant actuellement dans une phase de prototypage, certains bugs sont présents dans le projet.
 
