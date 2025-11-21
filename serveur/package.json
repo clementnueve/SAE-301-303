@@ -1,0 +1,17 @@
+{
+  "name": "demo-modules-echarts-server",
+  "version": "1.0.0",
+  "description": "sample server for demo modules echarts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Rémi Venant",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "qs": "^6.14.0"
+  }
+}

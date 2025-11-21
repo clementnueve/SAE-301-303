@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/master_v1.css" rel="stylesheet" />
+  <script src="./node_modules/echarts/dist/echarts.js"></script>
+  <script type="module" src="./modules/orchestrator.js"></script>
+  <title>Master - Gradu8</title>
+</head>
+<body>
+  <style>
+      /* Assure que le conteneur de la carte a une hauteur non nulle */
+      #map.image-15 { height: 240px; width: 100%; border-radius: 6px; }
+    </style>
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <img src="./img/group0.svg" alt="Logo" />
+      </a>
+
+      <nav class="navbar-menu">
+        <a href="index.html" class="nav-link active">Accueil</a>
+        <a href="#" class="nav-link">Masters</a>
+        <a href="#" class="nav-link">Recherche</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+      <div class="frame-27">
+        <img class="rectangle-27" src="./img/lyon.webp" />
+        <div class="frame-13">
+          <div class="frame-23">
+            <div class="frame-28">
+              <div class="nomParcours">
+                Arts numériques et cultures visuelles
+              </div>
+              <div class="frame-38">
+                <div class="etablissement">
+                  Université Gustave Eiffel
+                </div>
+                <img class="external-link" src="img/external-link0.png" />
+              </div>
+            </div>
+            <div class="frame-31">
+              <div class="frame-36">
+                <div class="ville">Marne-la-Vallée</div>
+              </div>
+              <div class="frame-34">
+                <div class="places">125 places</div>
+              </div>
+              <div class="frame-37">
+                <div class="alternance">Alternance</div>
+              </div>
+              <div class="frame-382">
+                <div class="initial">Initial</div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="frame-26">
+              <div id="map" class="image-15"></div>
+            <div class="frame-22">
+              <img class="image-9" src="./img/image-90.png" />
+              <div
+                class="_5-boulevard-descartes-champs-sur-marne-77454-marne-la-vall-e-cedex-2"
+              >
+                5 boulevard Descartes
+                <br />
+                Champs-sur-Marne
+                <br />
+                77454 Marne-la-Vallée cedex 2
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-53">
+          <div class="frame-54">
+            <img
+              class="architecture-426426-1280-1"
+              src="./img/architecture-426426-1280-10.png"
+            />
+            <div class="rectangle-42"></div>
+            <div class="frame-132">
+              <div class="est-tu-pr-t">Est-tu prêt ?</div>
+              <div
+                class="tu-va-pouvoir-en-d-couvrir-plus-sur-cette-formation-je-suis-la-pour-t-aider-dans-ta-d-couverte-je-vais-te-montrer-les-statistiques-que-tu-recherche"
+              >
+                Tu va pouvoir en découvrir plus sur cette formation. Je suis la
+                pour t’aider dans ta découverte : je vais te montrer les
+                statistiques que tu recherche !
+              </div>
+              <div class="rounded-rectangle"></div>
+              <div class="d-couvrir">Découvrir</div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-15">
+          <div class="frame-43">
+            <div class="admission">Admission</div>
+            <div class="frame-47">
+              <div class="frame-56">
+                <div id="attemptsGauge">
+                  <h3>test</h3>
+                  <div class="viz"></div>
+                </div>
+                <div class="taux">Taux</div>
+              </div>
+            </div>
+            <div class="admission">Admission</div>
+            <div class="frame-472">
+            </div>
+          </div>
+        </div>
+        <div class="image-6"></div>
+        <img
+          class="chat-gpt-image-14-nov-2025-10-35-37-1"
+          src="./img/"
+        />
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+  <!-- Leaflet JS and map initialization -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function() {
+      try {
+        var lat = 48.847; // Champs-sur-Marne approx
+        var lon = 2.606;
+        var map = L.map('map', { scrollWheelZoom: false }).setView([lat, lon], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+          .bindPopup('<strong>Université Gustave Eiffel</strong><br/>5 boulevard Descartes').openPopup();
+      } catch (e) {
+        console.error('Erreur initialisation Leaflet:', e);
+      }
+    })();
+  </script>
+  </body>
+<footer><div class="footer">
+        <div class="frame-48">
+          <img class="image-17" src="./img/image-170.png" />
+          <div class="frame-49">
+            <div class="support-contact-us-faq-chercher-un-master">
+              <span>
+                <span class="support-contact-us-faq-chercher-un-master-span">
+                  Support
+                  <br />
+                </span>
+                <span class="support-contact-us-faq-chercher-un-master-span2">
+                  Contact Us
+                  <br />
+                  FAQ
+                  <br />
+                  Chercher un Master
+                </span>
+              </span>
+            </div>
+            <div class="gradu-8-contact-us-faq-chercher-un-master">
+              <span>  
+                <span class="gradu-8-contact-us-faq-chercher-un-master-span">
+                  Gradu8
+                  <br />
+                </span>
+                <span class="gradu-8-contact-us-faq-chercher-un-master-span2">
+                  Contact Us
+                  <br />
+                  FAQ
+                  <br />
+                  Chercher un Master
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="rectangle-36"></div>
+        <img class="frame-41" src="./img/frame-410.svg" />
+      </div></footer>
+</html>

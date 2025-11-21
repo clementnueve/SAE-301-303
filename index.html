@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradu8 - Trouve ton Master</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="./img/logo-carré.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="zone-blanche">
+        
+        <header class="entete">
+            <div class="conteneur entete-flex">
+                <img class="logo" src="./img/group0.svg" alt="Logo Gradu8" />
+                <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-navigation">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </button>
+                <nav id="site-navigation" class="navigation">
+                    <a href="index.html" class="lien-nav">Accueil</a>
+                    <a href="master_clean.html" class="lien-nav">Masters</a>
+                    <a href="#" class="lien-nav">Recherche</a>
+                    <a href="#" class="lien-nav">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="conteneur hero-contenu">
+                <div class="hero-textes">
+                    <h1>Trouve le Master qui<br>te correspond</h1>
+                    <p>
+                        <span class="gras-bleu">Gradu8</span> te propose un <span class="gras-orange">large nombre de masters</span> avec des informations précises.
+                    </p>
+                    <a href="#" class="bouton-sombre">Explorer</a>
+                </div>
+                <img class="hero-perso" src="./img/frank_acceuil.webp" alt="Personnage Hero">
+            </div>
+        </section>
+    </div>
+
+    <div class="zone-bleue">
+
+        <section class="recherche">
+            <div class="conteneur">
+                <div class="carte-recherche">
+                    <div class="titres-recherche">
+                        <h2>Recherche un Master</h2>
+                        <p>Renseigne le domaine que tu recherches et la zone<br>géographique dans laquelle tu vis.</p>
+                    </div>
+                    
+                    <form class="barre-recherche">
+                        <div class="groupe-input">
+                            <input type="text" placeholder="Formation, domaine, diplôme...">
+                        </div>
+                        <div class="separateur"></div>
+                        <div class="groupe-input petit">
+                            <input type="text" placeholder="Où ?">
+                        </div>
+                        <button type="submit" class="bouton-orange">Rechercher</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="coach">
+            <div class="conteneur coach-grid">
+                <div class="coach-image">
+                    <img src="./img/frank-assis.webp" alt="Coach Frank">
+                </div>
+                <div class="coach-contenu">
+                    <h3>Salut à toi ! Moi, c’est Coach Frank 👋</h3>
+                    <p>
+                        Mon job ? T’aider à trouver le master qui te correspond vraiment.
+                        Que tu sois perdu dans la jungle des formations, ou simplement curieux, je suis là pour te guider pas à pas.
+                        Avec mon flair de coach, je t’aide à clarifier tes objectifs sans prise de tête.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <img src="./img/vector0.svg" alt="">
+                            <span>+ 5000 Masters</span>
+                        </div>
+                        <div class="stat-item">
+                            <img src="./img/avatar0.svg" alt="">
+                            <span>Coach dédié</span>
+                        </div>
+                        <div class="stat-item">
+                            <img src="./img/vector1.svg" alt="">
+                            <span>+57 villes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="campus">
+            <div class="conteneur">
+                <h2 class="titre-campus">Trouve ton Campus</h2>
+                <div class="grille-cartes">
+                    <a href="master_clean.html" class="carte">
+                        <div class="logo-univ">
+                            <img src="./img/univ-evry.webp" alt="Montpellier">
+                        </div>
+                        <div class="info-carte">
+                            <h4>Biologie-santé</h4>
+                            <p>Neuroprothèses Sensorielles</p>
+                            <div class="tag-lieu"><img src="./img/vector2.svg" alt=""> Montpellier</div>
+                        </div>
+                    </a>
+                    <a href="master_clean.html" class="carte">
+                        <div class="logo-univ">
+                            <img src="./img/univ-lyon.webp" alt="Lyon">
+                        </div>
+                        <div class="info-carte">
+                            <h4>Droit des affaires</h4>
+                            <p>Droit du marché digital</p>
+                            <div class="tag-lieu"><img src="./img/vector2.svg" alt=""> Lyon</div>
+                        </div>
+                    </a>
+                    <a href="master_clean.html" class="carte">
+                        <div class="logo-univ">
+                            <img src="./img/univ-rennes.webp" alt="Rennes">
+                        </div>
+                        <div class="info-carte">
+                            <h4>Marketing, vente</h4>
+                            <p>Franchise & Commerce</p>
+                            <div class="tag-lieu"><img src="./img/vector2.svg" alt=""> Rennes</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <footer class="pied-page">
+        <div class="pied-page-conteneur">
+            <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+            <div class="pied-page-liens">
+                <div class="colonne-liens">
+                    <strong>Support</strong>
+                    <ul>
+                        <li><a href="#">Contactez-nous</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Chercher un Master</a></li>
+                    </ul>
+                </div>
+                <div class="colonne-liens">
+                    <strong>Gradu8</strong>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pied-page-decoration">
+            <img src="./img/frame-410.svg" alt="Icônes de décoration" />
+        </div>
+    </footer>
+    <script src="modules/burgerMenu.js" defer></script>
+</body>
+</html>

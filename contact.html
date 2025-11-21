@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="./img/logo-carré.svg" />
+  <link href="styles/master-clean.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Contact - Gradu8</title>
+</head>
+
+<body>
+  <header class="entete">
+    <img class="logo" src="./img/group0.svg" alt="Logo Gradu8" />
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <nav id="site-navigation" class="navigation">
+      <a href="index.html" class="lien-nav">Accueil</a>
+      <a href="master_clean.html" class="lien-nav">Masters</a>
+      <a href="#" class="lien-nav">Recherche</a>
+      <a href="contact.html" class="lien-nav">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-master" style="padding-top:40px;">
+    <section style="max-width:880px;margin:0 auto;position:relative;padding:30px 24px;">
+      <!-- Photo du coach (overlay à gauche) -->
+      <figure class="coach coach-principal" aria-hidden="true">
+        <img class="coach-image" src="./img/franck-police.webp" alt="Coach Franck" />
+      </figure>
+
+      <div style="margin-left:140px;">
+        <h1 style="color:#182442;margin-bottom:16px;">Contactez-nous</h1>
+        <p style="color:#444;margin-bottom:24px;">Pour toute question ou problème, remplissez le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
+
+        <form id="contact-form" action="#" method="post" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <label style="display:block;">Nom complet
+            <input type="text" name="name" id="name" required placeholder="Prénom Nom" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);" />
+          </label>
+          <label style="display:block;">Email
+            <input type="email" name="email" id="email" required placeholder="votre@exemple.com" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);" />
+          </label>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <label style="display:block;">Téléphone (optionnel)
+            <input type="tel" name="phone" id="phone" placeholder="06 12 34 56 78" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);" />
+          </label>
+          <label style="display:block;">Sujet
+            <select name="subject" id="subject" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);">
+              <option value="">-- choisir un sujet --</option>
+              <option value="inscription">Inscription / Candidature</option>
+              <option value="probleme">Problème technique</option>
+              <option value="information">Demande d'information</option>
+              <option value="autre">Autre</option>
+            </select>
+          </label>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <label style="display:block;">Message
+            <textarea name="message" id="message" rows="8" required placeholder="Décrivez votre question ou problème..." style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);"></textarea>
+          </label>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <input type="checkbox" id="consent" name="consent" required />
+          <label for="consent">J'accepte que mes données soient utilisées pour répondre à ma demande (voir <a href="#">politique de confidentialité</a>).</label>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <button type="submit" class="btn btn-decouvrir">Envoyer</button>
+          <button type="reset" class="btn" style="background:#f2f2f2;color:#182442;border-radius:25px;padding:10px 20px;border:none;">Réinitialiser</button>
+        </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied-page" style="margin-top:80px;">
+    <div class="pied-page-conteneur">
+      <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+      <div class="pied-page-liens">
+        <div class="colonne-liens">
+          <strong>Support</strong>
+          <ul>
+            <li><a href="contact.html">Contactez-nous</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Chercher un Master</a></li>
+          </ul>
+        </div>
+        <div class="colonne-liens">
+          <strong>Gradu8</strong>
+          <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Formulaire: simple validation côté client et simulation d'envoi
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.currentTarget;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      // Simuler envoi
+      alert('Merci, votre message a été envoyé. Nous vous répondrons bientôt.');
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>

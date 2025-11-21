@@ -1,0 +1,17 @@
+{
+  "name": "demo-modules-echarts",
+  "version": "1.0.0",
+  "description": "demo modules echarts",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rémi Venant",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "echarts": "^6.0.0"
+  }
+}

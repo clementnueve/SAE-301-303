@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="./img/logo-carré.svg" />
+    <link href="styles/master-clean.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAo9TckVAB6xR2Myg659d/5Hw68lAeD4Lw/o9V2o=" crossorigin="" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="./node_modules/echarts/dist/echarts.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20n6a9K1wE5T324T2uH8N1evE/o4orqnRkfnNJ/azmI=" crossorigin=""></script>
+    <script type="module" src="./modules/orchestrator.js"></script>
+    <title>Master clean - Gradu8</title>
+
+</head>
+
+<body>
+    <header class="entete">
+        <img class="logo" src="./img/group0.svg" alt="Logo Gradu8" />
+        <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-navigation">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+        <nav id="site-navigation" class="navigation">
+            <a href="index.html" class="lien-nav">Accueil</a>
+            <a href="master_clean.html" class="lien-nav">Masters</a>
+            <a href="#" class="lien-nav">Recherche</a>
+            <a href="contact.html" class="lien-nav">Contact</a>
+        </nav>
+    </header>
+
+
+    <main class="page-master">
+        <figure class="hero">
+            <img class="hero-image" src="./img/univ-eiffel.png" alt="Image illustrant le Master" />
+        </figure>
+
+        <section class="info-master">
+            <article class="master-details">
+                <div class="master-entete">
+                    <h1 class="master-titre">Arts numériques et cultures visuelles</h1>
+                    <div class="master-etablissement">
+                        <p class="etablissement-nom">Université Gustave Eiffel</p>
+                        <a href="https://www.univ-gustave-eiffel.fr/" target="_blank"
+                            aria-label="Lien externe vers l'établissement">
+                            <img class="etablissement-lien" src="./img/External-Link.svg" alt="Lien externe" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="master-etiquettes">
+                    <span id="etiquette-ville" class="etiquette etiquette-ville">Marne-la-Vallée</span>
+                    <span id="etiquette-places" class="etiquette etiquette-places">125 places</span>
+                    <span class="etiquette etiquette-alternance">Alternance</span>
+                    <span class="etiquette etiquette-initial">Initial</span>
+                </div>
+            </article>
+
+            <aside class="master-localisation">
+                <div class="map-embed">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5231.42909208988!2d2.5840776762698985!3d48.83966800202416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60fccfb8f519b%3A0x9e4070f70f1ad69c!2sUniversit%C3%A9%20Gustave%20Eiffel!5e1!3m2!1sfr!2sfr!4v1763579440425!5m2!1sfr!2sfr"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <address class="localisation-adresse">
+                    <img class="adresse-icone" src="./img/vector.svg" alt="Icône de localisation" />
+                    <p class="adresse-texte">5 boulevard Descartes<br />Champs-sur-Marne<br />77454 Marne-la-Vallée
+                        cedex 2</p>
+                </address>
+            </aside>
+        </section>
+
+        <section class="section-motivation">
+            <div class="motivation-contenu">
+                <img class="motivation-fond" src="./img/architecture.svg" alt="Motif abstrait d'architecture"
+                    aria-hidden="true" />
+                <figure class="coach coach-principal">
+                    <img class="coach-image" src="./img/franck_règle.webp" alt="Coach Frank" />
+                </figure>
+                <div class="motivation-texte">
+                    <h2 class="motivation-titre">Est-tu prêt ?</h2>
+                    <p>Tu vas pouvoir en découvrir plus sur cette formation. Je suis là pour t'aider dans ta découverte
+                        : je vais te montrer les statistiques que tu recherches !</p>
+                    <button class="btn btn-decouvrir">Découvrir</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-stats">
+
+            <article class="stat-ligne">
+                <div id="attemptsGauge">
+                    <div class="viz"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-entete">
+                        <figure class="stat-figure">
+                            <img class="stat-coach-img" src="./img/frank-ordinateur.webp" alt="Coach Franck" />
+                        </figure>
+                        <div class="stat-contenu">
+                            <h3 class="stat-titre-bandeau">Taux d’Admission</h3>
+                            <p class="stat-description">
+                                Voici le Taux d’Admission du Master <span class="stat-highlight">Arts numériques et
+                                    cultures visuelles</span>.
+                            </p>
+                            <li class="stat-chiffres-grille">
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">867</dt>
+                                    <dd class="chiffre-libelle">Candidatures</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">60</dt>
+                                    <dd class="chiffre-libelle">Admis</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">125</dt>
+                                    <dd class="chiffre-libelle">Places</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">56</dt>
+                                    <dd class="chiffre-libelle">Rang du dernier<br />appelé</dd>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="stat-ligne stat-ligne-inverse">
+                <figure class="stat-figure-graphique">
+                    <img class="stat-image-gauche" src="./img/franck_crayon.webp"
+                        alt="Graphique Radar des Formations" />
+                </figure>
+                <div class="stat-card">
+                    <header class="stat-entete">
+                        <div id="attemptsCamembert">
+                            <div class="viz"></div>
+                        </div>
+                        <div class="stat-contenu-retourne">
+                            <h3 class="stat-titre-bandeau">Formations d’Origine</h3>
+                            <p class="stat-description">
+                                Voici les différentes <span class="stat-highlight">formations initiales</span> d’où
+                                proviennent les admis.
+                            </p>
+                            <dl class="stat-chiffres-grille">
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">307</dt>
+                                    <dd class="chiffre-libelle">Faculté</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">31</dt>
+                                    <dd class="chiffre-libelle">BTS</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">45</dt>
+                                    <dd class="chiffre-libelle">BUT</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">60</dt>
+                                    <dd class="chiffre-libelle">Autres</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </header>
+                </div>
+            </article>
+
+            <article class="stat-ligne">
+                <div class="stat-card">
+                    <div class="stat-entete">
+                        <figure class="stat-figure">
+                            <img class="stat-coach-img" src="./img/frank_contrat.webp" alt="Image pour Taux d'Emploi" />
+                        </figure>
+                        <div class="stat-contenu">
+                            <h3 class="stat-titre-bandeau stat-bandeau-court">Taux d’Emploi</h3>
+                            <p class="stat-description">
+                                Voici le <span class="stat-highlight">Taux d'insertion professionnel</span> de la
+                                formation.
+                            </p>
+                            <dl class="stat-chiffres-grille">
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">88%</dt>
+                                    <dd class="chiffre-libelle">En emploi stable</dd>
+                                </div>
+                                <div class="stat-paire stat-paire-vide"></div>
+                                <div class="stat-paire stat-paire-aligne">
+                                    <dt class="chiffre-principal">1430€</dt>
+                                    <dd class="chiffre-libelle">Salaire net<br />Mensuel Median</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <figure class="stat-figure-graphique">
+                    <img class="stat-image-droite" src="image-220.png" alt="Graphique Emploi" />
+                </figure>
+            </article>
+
+            <article class="stat-ligne stat-ligne-inverse">
+                <figure class="stat-figure-graphique">
+                    <img class="stat-image-gauche" src="image-340.png" alt="Graphique Type d'Emploi" />
+                </figure>
+                <div class="stat-card">
+                    <header class="stat-entete">
+                        <figure class="stat-figure">
+                            <img class="stat-coach-img stat-coach-miroir" src="./img/frank-valise.webp"
+                                alt="Image pour Type d'Emploi" />
+                        </figure>
+                        <div class="stat-contenu-retourne">
+                            <h3 class="stat-titre-bandeau stat-bandeau-court">Type d’Emploi</h3>
+                            <p class="stat-description">
+                                Voici les <span class="stat-highlight">différents types d’emploi décroché</span> après
+                                la formation.
+                            </p>
+                            <dl class="stat-chiffres-grille">
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">75%</dt>
+                                    <dd class="chiffre-libelle">CDI</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">65%</dt>
+                                    <dd class="chiffre-libelle">Temps Plein</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">28%</dt>
+                                    <dd class="chiffre-libelle">Emploi Cadre</dd>
+                                </div>
+                                <div class="stat-paire">
+                                    <dt class="chiffre-principal">1430€</dt>
+                                    <dd class="chiffre-libelle">Salaire net<br />Mensuel Median</dd>
+                                </div>
+                            </dl>
+                    </header>
+                </div>
+            </article>
+
+        </section>
+
+
+
+        <section class="section-suggestion">
+            <h2 class="section-titre-principal">Suggestion</h2>
+            <div class="grille-cartes">
+                <a href="#" class="carte">
+                    <div class="logo-univ">
+                        <img src="./img/univ-evry.webp" alt="Image Biologie-santé" />
+                    </div>
+                    <div class="info-carte">
+                        <h4>Biologie-santé</h4>
+                        <p>Neuroprothèses Sensorielles et motrices</p>
+                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Montpellier</div>
+                    </div>
+                </a>
+                <a href="#" class="carte">
+                    <div class="logo-univ">
+                        <img src="img/univ-lyon.webp" alt="Image Droit des affaires" />
+                    </div>
+                    <div class="info-carte">
+                        <h4>Droit des affaires</h4>
+                        <p>Droit du marché digital et des données</p>
+                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Lyon</div>
+                    </div>
+                </a>
+                <a href="#" class="carte">
+                    <div class="logo-univ">
+                        <img src="img/univ-rennes.webp" alt="Image Marketing, vente" />
+                    </div>
+                    <div class="info-carte">
+                        <h4>Marketing, vente</h4>
+                        <p>M1 Franchise & Commerce en Réseau</p>
+                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Rennes</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pied-page">
+        <div class="pied-page-conteneur">
+            <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+            <div class="pied-page-liens">
+                <div class="colonne-liens">
+                    <strong>Support</strong>
+                    <ul>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Chercher un Master</a></li>
+                    </ul>
+                </div>
+                <div class="colonne-liens">
+                    <strong>Gradu8</strong>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pied-page-decoration">
+            <img src="./img/frame-410.svg" alt="Icônes de décoration" />
+        </div>
+    </footer>
+
+    <script>
+        // Le JavaScript reste inchangé et propre.
+        (function () {
+            function ensureLeaflet(cb) {
+                if (typeof L !== 'undefined') return cb();
+                var s = document.createElement('script');
+                s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+                s.onload = function () { console.info('Leaflet chargé via fallback'); cb(); };
+                s.onerror = function () { console.error('Impossible de charger Leaflet'); };
+                document.head.appendChild(s);
+            }
+
+            function initMap() {
+                try {
+                    var carteEl = document.getElementById('carte');
+                    if (!carteEl || carteEl.tagName !== 'DIV') {
+                        console.info('Pas de conteneur Leaflet (#carte) — initialisation ignorée.');
+                        return;
+                    }
+                    var lat = 48.847;
+                    var lon = 2.606;
+                    var carte = L.map('carte', { scrollWheelZoom: false }).setView([lat, lon], 15);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(carte);
+
+                    L.marker([lat, lon]).addTo(carte)
+                        .bindPopup("Champs-sur-Marne")
+                        .openPopup();
+                } catch (e) {
+                    console.error('Erreur lors de l\'initialisation de la carte:', e);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    ensureLeaflet(initMap);
+                });
+            } else {
+                ensureLeaflet(initMap);
+            }
+        })();
+    </script>
+</body>
+
+</html>
