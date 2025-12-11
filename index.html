@@ -25,8 +25,7 @@
                 <nav id="site-navigation" class="navigation">
                     <a href="index.html" class="lien-nav">Accueil</a>
                     <a href="master_clean.html" class="lien-nav">Masters</a>
-                    <a href="#" class="lien-nav">Recherche</a>
-                    <a href="#" class="lien-nav">Contact</a>
+                    <a href="contact.html" class="lien-nav">Contact</a>
                 </nav>
             </div>
         </header>
@@ -55,13 +54,9 @@
                         <p>Renseigne le domaine que tu recherches et la zone<br>géographique dans laquelle tu vis.</p>
                     </div>
                     
-                    <form class="barre-recherche">
+                    <form class="barre-recherche" id="form-recherche">
                         <div class="groupe-input">
-                            <input type="text" placeholder="Formation, domaine, diplôme...">
-                        </div>
-                        <div class="separateur"></div>
-                        <div class="groupe-input petit">
-                            <input type="text" placeholder="Où ?">
+                            <input type="text" id="input-ifc" placeholder="Formation, domaine, diplôme..." />
                         </div>
                         <button type="submit" class="bouton-orange">Rechercher</button>
                     </form>
@@ -139,22 +134,24 @@
 
     <footer class="pied-page">
         <div class="pied-page-conteneur">
-            <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+            <a href="coach-frank.html">
+                <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+            </a>
             <div class="pied-page-liens">
                 <div class="colonne-liens">
                     <strong>Support</strong>
                     <ul>
-                        <li><a href="#">Contactez-nous</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Chercher un Master</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="index.html">Chercher un Master</a></li>
                     </ul>
                 </div>
                 <div class="colonne-liens">
                     <strong>Gradu8</strong>
                     <ul>
-                        <li><a href="#">À propos</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
                     </ul>
                 </div>
             </div>
@@ -164,5 +161,43 @@
         </div>
     </footer>
     <script src="modules/burgerMenu.js" defer></script>
+    <script type="module">
+        import { searchFormations } from "./modules/RESTmanagement.js";
+
+        // Gestion de la recherche de formation
+        document.getElementById('form-recherche').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const inputIfcEl = document.getElementById('input-ifc');
+            const inputZoneEl = document.getElementById('input-zone');
+            const inputIfc = inputIfcEl ? inputIfcEl.value.trim() : '';
+            const inputZone = inputZoneEl ? inputZoneEl.value.trim() : '';
+
+            if (!inputIfc) {
+                alert('Veuillez entrer un code IFC ou le nom d\'une formation.');
+                return;
+            }
+
+            // Appel à la fonction de recherche ; si elle échoue ou ne renvoie rien,
+            // on retombe sur un comportement de secours (redirection directe).
+            searchFormations(inputIfc, inputZone).then((results) => {
+                if (results && results.results && results.results.length > 0) {
+                    const firstResult = results.results[0];
+                    const ifc = firstResult.ifc || (firstResult.record && firstResult.record.fields && firstResult.record.fields.ifc) || inputIfc;
+                    const encodedId = encodeURIComponent(ifc);
+                    window.location.href = `master_clean.html?id=${encodedId}`;
+                } else {
+                    // fallback : si la recherche n'a rien retourné, on redirige avec l'entrée brute
+                    const encodedId = encodeURIComponent(inputIfc);
+                    window.location.href = `master_clean.html?id=${encodedId}`;
+                }
+            }).catch((error) => {
+                console.error('Erreur lors de la recherche :', error);
+                // fallback : redirection directe
+                const encodedId = encodeURIComponent(inputIfc);
+                window.location.href = `master_clean.html?id=${encodedId}`;
+            });
+        });
+    </script>
 </body>
 </html>

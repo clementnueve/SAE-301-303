@@ -11,24 +11,70 @@ export function getDataAttempt() {
     let baseURL =
         "https://data.enseignementsup-recherche.gouv.fr/api/explore/v2.1/catalog/datasets/fr-esr-mon_master/records";
 
-    let idFormation = "'1601861D3NAY'";
+    // default sans guillemets
+    let idFormation = "0900845UMKXW";
     let urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("id") != null) {
         idFormation = urlParams.get("id");
     }
 
-    console.log(idFormation);
-    
-    
+    console.log('ID reçu (raw):', idFormation);
 
-    return (
-        fetch(baseURL + "?where=ifc=" + idFormation)
+    // Normaliser : retirer guillemets éventuels fournis dans l'URL
+    const normalized = String(idFormation).replace(/^['"]|['"]$/g, '');
+    const whereClause = `ifc='${normalized}'`;
 
-            .then((answer) => {
-                if (!answer.ok) {
-                    throw new Error("Erreur d'accès aux tentatives : " + answer.status);
-                }
-                return answer.json();
-            })
-    );
+    return fetch(baseURL + "?where=" + encodeURIComponent(whereClause))
+        .then((answer) => {
+            if (!answer.ok) {
+                throw new Error("Erreur d'accès aux tentatives : " + answer.status);
+            }
+            return answer.json();
+        });
+}
+
+
+/**
+ * Recherche des formations par IFC ou par texte (nom de formation / université).
+ * @param {string} searchTerm
+ * @param {string} zone (optionnel) — filtre sur l'académie / zone
+ * @returns {Promise<object>} résultat JSON de l'API (ou {results:[]} en cas d'erreur)
+ */
+export function searchFormations(searchTerm, zone = "") {
+    const baseURL =
+        "https://data.enseignementsup-recherche.gouv.fr/api/explore/v2.1/catalog/datasets/fr-esr-mon_master/records";
+
+    if (!searchTerm || typeof searchTerm !== 'string') {
+        return Promise.resolve({ results: [] });
+    }
+
+    const term = searchTerm.trim();
+    let whereClause = '';
+
+    // Détecte un IFC probable (suite alphanumérique, longueur >= 6)
+    if (/^[A-Z0-9]{6,}$/i.test(term)) {
+        // mettre entre guillemets
+        const quoted = '"' + term + '"';
+        whereClause = `ifc=${quoted}`;
+    } else {
+        // Recherche texte : échappe les apostrophes et fait une recherche insensible à la casse
+        const esc = term.replace(/'/g, "''").toLowerCase();
+        whereClause = `(lower(disci_master) LIKE '%${esc}%' OR lower(eta_nom) LIKE '%${esc}%')`;
+    }
+
+    if (zone && zone.trim() !== '') {
+        const z = zone.trim().replace(/'/g, "''").toLowerCase();
+        whereClause += ` AND lower(acad_lib) LIKE '%${z}%'`;
+    }
+
+    const url = baseURL + '?where=' + encodeURIComponent(whereClause);
+    return fetch(url)
+        .then((res) => {
+            if (!res.ok) throw new Error('Recherche API failed: ' + res.status);
+            return res.json();
+        })
+        .catch((err) => {
+            console.error('searchFormations error', err);
+            return { results: [] };
+        });
 }

@@ -3,8 +3,8 @@
 /* ==================================== */
 
 .viz {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
 }
 
 * {
@@ -120,6 +120,23 @@ dl, ul {
 
 .lien-nav:hover {
     color: #eb8526;
+}
+
+/* Fix for Leaflet Map Tiles */
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container img.leaflet-marker-icon,
+.leaflet-container img.leaflet-tile {
+    max-width: none !important;
+    max-height: none !important;
+    width: auto;
+    padding: 0;
+}
+
+/* Ensure the map container actually has a size */
+#carte {
+    width: 100%;
+    height: 100%;
+    min-height: 400px; /* Make sure this matches what you want */
 }
 
 /* ==================================== */
@@ -362,6 +379,7 @@ dl, ul {
 }
 .stat-ligne,
 .stat-ligne-inverse {
+    width: 700px;
     display: flex;
     gap: 40px;
     align-items: center;
@@ -380,12 +398,16 @@ dl, ul {
 .stat-figure {
     flex-shrink: 0;
     margin: 0;
+    margin-bottom: 5px;
 }
 .stat-coach-img {
-    width: 210px;
+    width: 120px;
     height: auto;
     object-fit: cover;
     flex-shrink: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .stat-coach-miroir {
     transform: scaleX(-1);
@@ -393,14 +415,9 @@ dl, ul {
 .stat-contenu {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 10px;
 }
-.stat-contenu-retourne {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 45px;
-}
+
 .stat-titre-bandeau {
     background: linear-gradient(90deg, #182442 0%, #2b3f70 100%);
     color: #fff;
@@ -409,8 +426,7 @@ dl, ul {
     font-weight: 400;
     font-size: 17px;
     border-radius: 10px;
-    width: 235px;
-    padding: 8px;
+    padding: 9px;
 }
 .stat-description {
     padding: 5px;
@@ -420,22 +436,12 @@ dl, ul {
     margin-top: 15px;
     text-align: left;
 }
-.stat-ligne-inverse .stat-description {
-    text-align: right;
-}
+
 .stat-highlight {
     color: #f25e0d;
     font-weight: 500;
 }
-.stat-figure-graphique {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 40%;
-    max-width: 550px;
-    margin: 0;
-    flex-shrink: 0;
-}
+
 .stat-image-droite,
 .stat-image-gauche {
     display: flex;
@@ -456,7 +462,7 @@ dl, ul {
 .stat-paire {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     text-align: center;
     width: calc(50% - 15px);
 
@@ -574,6 +580,11 @@ dl, ul {
     height: auto;
     object-fit: contain;
     flex-shrink: 0;
+    cursor: pointer; /* Ajout pour rendre la photo cliquable */
+    transition: box-shadow 0.2s;
+}
+.pied-page-logo:hover {
+    box-shadow: 0 0 0 4px #ff610055;
 }
 .pied-page-liens {
     display: grid;

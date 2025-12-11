@@ -2,6 +2,7 @@ let echartsInstance;
 
 // --- définition des options et données de base de la visualisation --- //
 let option = {
+  color: ['#FF6100', '#223059'],
   tooltip: {
     trigger: 'item'
   },
@@ -11,7 +12,6 @@ let option = {
   },
   series: [
     {
-      name: 'Access From',
       type: 'pie',
       radius: ['40%', '70%'],
       avoidLabelOverlap: false,
@@ -19,10 +19,7 @@ let option = {
       itemStyle: {
         borderRadius: 10
       },
-      label: {
-        show: false,
-        position: 'center'
-      },
+
       emphasis: {
         label: {
           show: true,
@@ -34,8 +31,8 @@ let option = {
         show: false
       },
       data: [
-        { value: 1048, name: 'Search Engine' },
-        { value: 735, name: 'Direct' }
+        { value: 0, name: 'Hommes' },
+        { value: 0, name: 'Femmes' }
       ]
     }
   ]
@@ -48,20 +45,23 @@ echartsInstance.on('legendselectchanged', (evt)=>{
 
 export function create() {
   console.log("create CamembertViz");
-  // --- sélectionne l'élement qui accueillera la visualisation en camembert --- //
   const domViz = document.getElementById("attemptsCamembert").querySelector(".viz");
-  // --- créé la visualisation dans l'élément --- //
   echartsInstance = echarts.init(domViz);
   echartsInstance.setOption(option);
 }
 
 export function update(data) {
-  if (!echartsInstance) return;
+  if (!echartsInstance || !data.results || !data.results[0]) return;
 
-  // const newData = [
-  //   { value: data.candidatLicenceGen["2024"] || 0, name: 'Licence Générale' },
-  //   { value: data.candidatLicencePro["2024"] || 0, name: 'Licence Pro' }
-  // ];
+  const admisFemmes = data.results[0]["n_accept_femme_pp"] + data.results[0]["n_accept_femme_pc"];
+  const admisHommes = data.results[0]["n_accept_total"] - (data.results[0]["n_accept_femme_pp"] + data.results[0]["n_accept_femme_pc"]);
+
+  const newData = [
+    { value: admisFemmes, name: 'Femmes' },
+    { value: admisHommes, name: 'Hommes' }
+    
+    
+  ];
 
   echartsInstance.setOption({
     series: [

@@ -27,7 +27,7 @@ let option = {
       axisLabel: {
         distance: 25,
         color: '#999',
-        fontSize: 20
+        fontSize: 10
       },
       anchor: {
         show: true,
@@ -42,7 +42,7 @@ let option = {
       },
       detail: {
         valueAnimation: true,
-        fontSize: 80,
+        fontSize: 50,
         offsetCenter: [0, '70%']
       },
       data: [
@@ -67,15 +67,20 @@ export function create() {
 }
 
 export function update(data) {
-  if (!echartsInstance) return;
+  if (!echartsInstance || !data.results || !data.results[0]) return;
 
-  let newValue = data.results[0]["pct_accept_master"];
-  newValue *= 100;
+  let newValue2 = data.results[0]["n_can_pc"] + data.results[0]["n_can_pp"];
 
-  console.log(newValue);
+  if (newValue2 === 0) {
+    console.warn('Pas de candidatures (newValue2 = 0)');
+    return;
+  }
+
+  let newValue = data.results[0]["n_accept_total"];
+  newValue = (newValue / newValue2) * 100;
   
+  newValue = Math.round(newValue * 10) / 10;
   
-
   echartsInstance.setOption({
     series: [
       {

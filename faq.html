@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="./img/logo-carré.svg" />
+  <link href="styles/master-clean.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>FAQ - Gradu8</title>
+</head>
+
+<body>
+  <header class="entete">
+    <img class="logo" src="./img/group0.svg" alt="Logo Gradu8" />
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <nav id="site-navigation" class="navigation">
+      <a href="index.html" class="lien-nav">Accueil</a>
+      <a href="master_clean.html" class="lien-nav">Masters</a>
+      <a href="contact.html" class="lien-nav">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-master" style="padding-top:40px;">
+    <section style="max-width:880px;margin:0 auto;position:relative;padding:30px 24px;">
+      <h1 style="color:#182442;margin-bottom:16px;">Foire aux questions (FAQ)</h1>
+      <div class="faq-list">
+        <details style="margin-bottom:16px;">
+          <summary style="font-weight:600;cursor:pointer;">Comment puis-je chercher un master ?</summary>
+          <p>Utilisez la barre de recherche sur la page d’accueil ou la page “Recherche” pour trouver un master selon vos critères (domaine, localisation, etc.).</p>
+        </details>
+        <details style="margin-bottom:16px;">
+          <summary style="font-weight:600;cursor:pointer;">Comment contacter l’équipe Gradu8 ?</summary>
+          <p>Vous pouvez nous contacter via le formulaire disponible sur la page <a href="contact.html">Contact</a>.</p>
+        </details>
+        <details style="margin-bottom:16px;">
+          <summary style="font-weight:600;cursor:pointer;">Les informations sur les masters sont-elles à jour ?</summary>
+          <p>Nous faisons de notre mieux pour maintenir les informations à jour. Si vous constatez une erreur, n’hésitez pas à nous le signaler via le formulaire de contact.</p>
+        </details>
+        <details style="margin-bottom:16px;">
+          <summary style="font-weight:600;cursor:pointer;">Comment puis-je candidater à un master ?</summary>
+          <p>Chaque fiche master contient un lien ou des instructions pour postuler. Vous serez redirigé vers le site officiel de l’université ou de l’établissement concerné.</p>
+        </details>
+        <details style="margin-bottom:16px;">
+          <summary style="font-weight:600;cursor:pointer;">Je ne trouve pas mon master, que faire ?</summary>
+          <p>Essayez d’élargir vos critères de recherche ou contactez-nous pour que nous puissions vous aider.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied-page" style="margin-top:80px;">
+    <div class="pied-page-conteneur">
+      <a href="coach-frank.html">
+        <img class="pied-page-logo" src="./img/franck_allonge.webp" alt="Logo Gradu8 Footer" />
+      </a>
+      <div class="pied-page-liens">
+        <div class="colonne-liens">
+          <strong>Support</strong>
+          <ul>
+            <li><a href="contact.html">Contactez-nous</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html">Chercher un Master</a></li>
+          </ul>
+        </div>
+        <div class="colonne-liens">
+          <strong>Gradu8</strong>
+          <ul>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="modules/burgerMenu.js" defer></script>
+</body>
+</html>
