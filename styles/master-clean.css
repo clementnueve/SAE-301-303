@@ -1,7 +1,3 @@
-/* ==================================== */
-/* 0. RESET & BASE */
-/* ==================================== */
-
 .viz {
     width: 400px;
     height: 400px;
@@ -45,8 +41,7 @@ dl, ul {
 }
 
 /* ==================================== */
-/* 1. HEADER & NAVIGATION */
-/* ==================================== */
+
 .entete {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -104,6 +99,11 @@ dl, ul {
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 50;
+    animation: slideInMenu 0.3s;
+}
+@keyframes slideInMenu {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 .lien-nav {
     font-size: 14px;
@@ -112,7 +112,7 @@ dl, ul {
     transition: color 0.2s ease;
 }
 
-/* Hover / focus: mettre la typo en orange pour les items de navigation */
+
 .lien-nav:hover,
 .lien-nav:focus {
     color: var(--orange);
@@ -122,7 +122,7 @@ dl, ul {
     color: #eb8526;
 }
 
-/* Fix for Leaflet Map Tiles */
+
 .leaflet-container img.leaflet-image-layer,
 .leaflet-container img.leaflet-marker-icon,
 .leaflet-container img.leaflet-tile {
@@ -132,16 +132,15 @@ dl, ul {
     padding: 0;
 }
 
-/* Ensure the map container actually has a size */
+
 #carte {
     width: 100%;
     height: 100%;
-    min-height: 400px; /* Make sure this matches what you want */
+    min-height: 400px; /
 }
 
 /* ==================================== */
-/* 2. PAGE MASTER */
-/* ==================================== */
+
 .page-master {
     max-width: var(--max-width);
     width: 100%;
@@ -158,16 +157,20 @@ dl, ul {
     height: 300px;
     border-radius: 15px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.hero-image {
-    width: 100%;
-    height: 100%;
+.hero-logo {
+    width: 30%;
+    height: 30%;
     object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ==================================== */
-/* 3. INFO MASTER */
-/* ==================================== */
+
 .info-master {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
@@ -226,7 +229,6 @@ dl, ul {
     background: rgba(42, 59, 109, 0.05);
 }
 
-/* Localisation */
 .master-localisation {
     display: flex;
     flex-direction: column;
@@ -263,8 +265,7 @@ dl, ul {
 }
 
 /* ==================================== */
-/* 4. SECTION MOTIVATION */
-/* ==================================== */
+
 .section-motivation {
     position: relative;
     height: 300px;
@@ -369,8 +370,7 @@ dl, ul {
 }
 
 /* ==================================== */
-/* 5. SECTION STATISTIQUES */
-/* ==================================== */
+
 .section-stats {
     display: flex;
     align-items: center;
@@ -485,8 +485,7 @@ dl, ul {
 }
 
 /* ==================================== */
-/* 6. SECTION SUGGESTION */
-/* ==================================== */
+
 .section-suggestion {
     margin-top: 40px;
 }
@@ -559,8 +558,7 @@ dl, ul {
 }
 
 /* ==================================== */
-/* 7. FOOTER */
-/* ==================================== */
+
 .pied-page {
     background: #2b3f70;
     color: #fff;
@@ -580,7 +578,7 @@ dl, ul {
     height: auto;
     object-fit: contain;
     flex-shrink: 0;
-    cursor: pointer; /* Ajout pour rendre la photo cliquable */
+    cursor: pointer; 
     transition: box-shadow 0.2s;
 }
 .pied-page-logo:hover {
@@ -635,20 +633,18 @@ dl, ul {
     opacity: 1;
 }
 
-/* ==================================== */
-/* 8. RESPONSIVE */
-/* ==================================== */
+
 @media (max-width: 1000px) {
-    .coach-principal { width: 200px; left: -18px; top: -22px; }
+    .coach-principal { width: 180px; left: -18px; top: -22px; }
 }
 @media (max-width: 800px) {
-    .coach-principal { width: 160px; left: -14px; top: -16px; }
+    .coach-principal { width: 140px; left: -14px; top: -16px; }
 }
 @media (max-width: 768px) {
     .page-master { padding: 20px 15px; gap: 40px; }
     .info-master { grid-template-columns: 1fr; gap: 30px; }
     .master-titre { font-size: 28px; }
-    .stat-ligne, .stat-ligne-inverse { flex-direction: column; gap: 30px; }
+    .stat-ligne, .stat-ligne-inverse { flex-direction: column; gap: 30px; width: 100%; }
     .stat-figure-graphique { width: 100%; max-width: 100%; display: flex; gap: 30px; align-items: flex-start; }
     .stat-entete { flex-direction: column; align-items: center; text-align: center; }
     .stat-contenu { align-items: center; text-align: center; }
@@ -662,6 +658,8 @@ dl, ul {
     .pied-page-liens { grid-template-columns: 1fr; gap: 40px; }
     .entete-menu { gap: 20px; font-size: 14px; }
     .pied-page { padding: 40px 15px; }
+    .viz { width: 100%; height: auto; }
+    .hero { height: 250px; }
 }
 @media (max-width: 480px) {
     .entete-conteneur { padding: 0 15px; }
@@ -669,5 +667,53 @@ dl, ul {
     .motivation-titre { font-size: 24px; }
     .chiffre-principal { font-size: 40px; }
     .chiffre-libelle { font-size: 18px; }
-    .coach-principal { width: 110px; left: -8px; top: -10px; }
+    .coach-principal { display: none; }
+    .stat-ligne, .stat-ligne-inverse { width: 100%; }
+    .viz { width: 100%; height: auto; }
+    .hero { height: 200px; }
+}
+
+@media (max-width: 900px) {
+    .burger {
+        display: flex;
+    }
+    .navigation {
+        display: none;
+    }
+    .navigation.open {
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 72px;
+        right: 20px;
+        background: white;
+        padding: 12px 18px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        z-index: 50;
+        animation: slideInMenu 0.3s;
+    }
+    @keyframes slideInMenu {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    .lien-nav {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #182442;
+        padding: 8px 0;
+        width: 100%;
+        transition: color 0.2s;
+    }
+    .lien-nav:hover,
+    .lien-nav:focus {
+        color: var(--orange);
+    }
+    .entete {
+        position: relative;
+        z-index: 1002;
+    }
+    body.menu-open {
+        overflow: hidden;
+    }
 }

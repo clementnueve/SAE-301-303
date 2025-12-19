@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="./img/logo-carré.svg" />
+    <link rel="icon" type="image/png" href="./img/logo_carre.svg" />
     <link href="styles/master-clean.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,9 @@
 
 <body>
     <header class="entete">
-        <img class="logo" src="./img/group0.svg" alt="Logo Gradu8" />
+        <a href="index.html">
+            <img class="logo" src="./img/logo.svg" alt="Logo Gradu8" />
+        </a>
         <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-navigation">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -37,7 +39,7 @@
 
     <main class="page-master">
         <figure class="hero">
-            <img id="logo-univ" class="hero-logo" src="./img/univ-eiffel.png" alt="Image illustrant le Master" />
+            <img id="logo-univ" class="hero-logo" src="./img/spin.gif" alt="Image illustrant le Master" />
         </figure>
 
         <section class="info-master">
@@ -54,6 +56,7 @@
                     <span id="etiquette-places" class="etiquette etiquette-places">125 places</span>
                     <span id="etiquette-alternance" class="etiquette etiquette-alternance">Alternance</span>
                     <span class="etiquette etiquette-initial">Initial</span>
+                    <span id="salaire" class="etiquette">Salaire</span>
                 </div>
             </article>
 
@@ -63,7 +66,7 @@
                     style="width: 100%; height: 250px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px #0001; margin-bottom: 1em;">
                 </iframe>
                 <address class="localisation-adresse">
-                    <img class="adresse-icone" src="./img/vector.svg" alt="Icône de localisation" />
+                    <img class="adresse-icone" src="./img/pin.svg" alt="Icône de localisation" />
                     <p id="adresse-texte" class="adresse-texte">5 boulevard Descartes<br />Champs-sur-Marne<br />77454
                         Marne-la-Vallée
                         cedex 2</p>
@@ -76,7 +79,7 @@
                 <img class="motivation-fond" src="./img/architecture.svg" alt="Motif abstrait d'architecture"
                     aria-hidden="true" />
                 <figure class="coach coach-principal">
-                    <img class="coach-image" src="./img/franck_règle.webp" alt="Coach Frank" />
+                    <img class="coach-image" src="./img/franck_regle.webp" alt="Coach Frank" />
                 </figure>
                 <div class="motivation-texte">
                     <h2 class="motivation-titre">Est-tu prêt ?</h2>
@@ -87,13 +90,13 @@
             </div>
         </section>
 
-        <section class="section-stats">
+        <section id="section-stats" class="section-stats">
 
             <article class="stat-ligne">
                 <div class="stat-card"></div>
                 <div class="stat-entete">
                     <figure class="stat-figure">
-                        <img class="stat-coach-img" src="./img/frank-ordinateur.webp" alt="Coach Franck" />
+                        <img class="stat-coach-img" src="./img/franck_ordinateur.webp" alt="Coach Franck" />
                     </figure>
                     <div class="stat-contenu">
                         <h3 class="stat-titre-bandeau">Taux d’Admission</h3>
@@ -116,7 +119,7 @@
                                 <dd class="chiffre-libelle">Places</dd>
                             </div>
                             <div class="stat-paire">
-                                <dt id="dernier-admis" class="chiffre-principal">56</dt>
+                                <dt id="dernier-admis" class="chiffre-principal">0</dt>
                                 <dd class="chiffre-libelle">Rang du dernier<br />appelé</dd>
                             </div>
                         </li>
@@ -163,115 +166,28 @@
             </article>
 
 
-
-
-            <article class="stat-ligne">
+<article class="stat-ligne">
+                
                 <div class="stat-card"></div>
                 <div class="stat-entete">
                     <figure class="stat-figure">
-                        <img class="stat-coach-img" src="./img/franck_contrat.webp" alt="Image pour Taux d'Emploi" />
+                        <img class="stat-coach-img" src="./img/franck_valise.webp" alt="Image pour Type d'Emploi" />
                     </figure>
                     <div class="stat-contenu">
-                        <h3 class="stat-titre-bandeau">Taux d’Emploi</h3>
+                        <h3 class="stat-titre-bandeau">Taux d'insertion</h3>
                         <p class="stat-description">
-                            Voici le <span id="master-titre" class="stat-highlight">Taux d'insertion
-                                professionnel</span> de la
-                            formation.
+                            Voici les <span id="master-titre" class="stat-highlight">taux d'insertions et de réponses</span> 
+                            de cette formation.
                         </p>
-                        <li class="stat-chiffres-grille">
-                            <div class="stat-paire">
-                                <dt id="nbr-admis-femmes" class="chiffre-principal">88%</dt>
-                                <dd class="chiffre-libelle">En emploi stable</dd>
-                            </div>
-                            <div class="stat-paire">
-                                <dt id="nbr-admis-hommes" class="chiffre-principal">1430€</dt>
-                                <dd class="chiffre-libelle">Salaire net<br />Mensuel Median</dd>
-                            </div>
-                        </li>
                     </div>
-                </div>
-                <div id="attemptsRadar">
+                </div><div id="attemptsBarre">
                     <div class="viz"></div>
                 </div>
                 </div>
-            </article>
-
-
-
-            <article class="stat-ligne">
-                <div id="attemptsBarre">
-                    <div class="viz"></div>
-                </div>
-                <div class="stat-card"></div>
-                <div class="stat-entete">
-                    <figure class="stat-figure">
-                        <img class="stat-coach-img" src="./img/frank-valise.webp" alt="Image pour Type d'Emploi" />
-                    </figure>
-                    <div class="stat-contenu">
-                        <h3 class="stat-titre-bandeau">Type d’Emploi</h3>
-                        <p class="stat-description">
-                            Voici les <span id="master-titre" class="stat-highlight">différents types d’emploi
-                                décroché</span> après
-                            la formation.
-                        </p>
-                        <li class="stat-chiffres-grille">
-                            <div class="stat-paire">
-                                <dt id="nbr-admis-femmes" class="chiffre-principal">75%</dt>
-                                <dd class="chiffre-libelle">CDI</dd>
-                            </div>
-                            <div class="stat-paire">
-                                <dt id="nbr-admis-hommes" class="chiffre-principal">65%</dt>
-                                <dd class="chiffre-libelle">Temps Plein</dd>
-                            </div>
-                            <div class="stat-paire">
-                                <dt id="nbr-admis-femmes" class="chiffre-principal">28%</dt>
-                                <dd class="chiffre-libelle">Emploi Cadre</dd>
-                            </div>
-                        </li>
-                    </div>
-                </div>
-                </div>
-            </article>
+            </article>           
 
         </section>
 
-
-
-        <section class="section-suggestion">
-            <h2 class="section-titre-principal">Suggestion</h2>
-            <div class="grille-cartes">
-                <a href="#" class="carte">
-                    <div class="logo-univ">
-                        <img src="./img/univ-evry.webp" alt="Image Biologie-santé" />
-                    </div>
-                    <div class="info-carte">
-                        <h4>Biologie-santé</h4>
-                        <p>Neuroprothèses Sensorielles et motrices</p>
-                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Montpellier</div>
-                    </div>
-                </a>
-                <a href="#" class="carte">
-                    <div class="logo-univ">
-                        <img src="img/univ-lyon.webp" alt="Image Droit des affaires" />
-                    </div>
-                    <div class="info-carte">
-                        <h4>Droit des affaires</h4>
-                        <p>Droit du marché digital et des données</p>
-                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Lyon</div>
-                    </div>
-                </a>
-                <a href="#" class="carte">
-                    <div class="logo-univ">
-                        <img src="img/univ-rennes.webp" alt="Image Marketing, vente" />
-                    </div>
-                    <div class="info-carte">
-                        <h4>Marketing, vente</h4>
-                        <p>M1 Franchise & Commerce en Réseau</p>
-                        <div class="tag-lieu"><img src="./img/vector3.svg" alt="Localisation" /> Rennes</div>
-                    </div>
-                </a>
-            </div>
-        </section>
     </main>
 
     <footer class="pied-page">
@@ -298,10 +214,19 @@
                 </div>
             </div>
         </div>
-        <div class="pied-page-decoration">
-            <img src="./img/frame-410.svg" alt="Icônes de décoration" />
-        </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.querySelector('.btn-decouvrir');
+            const statsSection = document.getElementById('section-stats');
+            if (btn && statsSection) {
+                btn.addEventListener('click', function () {
+                    statsSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+    <script src="modules/burgerMenu.js" defer></script>
 </body>
 
 </html>
