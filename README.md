@@ -5,7 +5,7 @@ Index.html :
 Dans le champ de recherche, veuillez inscrire un code IFC indépendante à chaque formation pour arriver sur la formation que vous désirez.
 
 Schéma de conception : 
-![Schéma VF](images/Schemavf.png)
+![Schéma VF](imagesvfcode/Schemavf.png)
 
 Déploiement : 
 Orchestrator.js - Main() : 
