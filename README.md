@@ -31,7 +31,7 @@ Afficher les données sur le côté.
 
 
 Schéma : 
-
+![Image BarreViz](imagesvfcode/image1.png)
 
 BarreViz.js : updateBarreViz()
 Paramètre : Responsable de l'actualisation de l'affichage du graphique à barres et des informations supplémentaires sur le côté (aucuns paramètres).
@@ -45,7 +45,7 @@ Afficher des sections du graph en fonction des données.
 Afficher les données sur le côté.
 
 Schéma : 
-
+![Image CamembertViz](imagesvfcode/image2.png)
 
 
 CamembertViz.js : updateCamembertViz()
@@ -60,7 +60,7 @@ Afficher la valeur en pourcentage en fonction des données.
 Afficher les données sur le côté.
 
 Schéma : 
-
+![Image TauxViz](imagesvfcode/image3.png)
 
 
 TauxViz.js : updateTauxViz()
